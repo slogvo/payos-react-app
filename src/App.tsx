@@ -4,7 +4,7 @@ import routes from "./routes";
 import Header from "./components/Header";
 import { CartProvider } from "./contexts/CartContext";
 
-function App() {
+const App = () => {
   return (
     <CartProvider>
       <Router>
@@ -13,6 +13,6 @@ function App() {
       </Router>
     </CartProvider>
   );
-}
+};
 
 export default App;

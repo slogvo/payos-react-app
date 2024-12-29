@@ -1,10 +1,10 @@
 import { Route } from "react-router-dom";
 import Home from "@/pages/Home";
-import NotFound from "@/pages/NotFound";
 import ProductDetail from "@/pages/ProductDetail";
 import Cart from "@/pages/Cart";
 import Checkout from "@/pages/Checkout";
 import CheckoutSuccess from "@/pages/CheckoutSuccess";
+import NotFound from "@/pages/NotFound";
 
 const routes = (
   <>
