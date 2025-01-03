@@ -183,7 +183,7 @@ const Home = () => {
                     translateX={40}
                     as="a"
                     href="mailto:volonglqd@gmail.com"
-                    className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                    className="px-4 py-2 rounded-xl text-white bg-blue-500 text-xs font-bold"
                   >
                     Contact me now →
                   </CardItem>

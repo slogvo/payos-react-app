@@ -1,5 +1,5 @@
 "use client";
-import { animate, motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import React, { useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -12,57 +12,19 @@ export function BlockAnimatedCard() {
 }
 
 const Skeleton = () => {
-  const scale = [1, 1.1, 1];
-  const transform = ["translateY(0px)", "translateY(-4px)", "translateY(0px)"];
-  const sequence = [
-    [
-      ".circle-1",
-      {
-        scale,
-        transform,
-      },
-      { duration: 0.8 },
-    ],
-    [
-      ".circle-2",
-      {
-        scale,
-        transform,
-      },
-      { duration: 0.8 },
-    ],
-    [
-      ".circle-3",
-      {
-        scale,
-        transform,
-      },
-      { duration: 0.8 },
-    ],
-    [
-      ".circle-4",
-      {
-        scale,
-        transform,
-      },
-      { duration: 0.8 },
-    ],
-    [
-      ".circle-5",
-      {
-        scale,
-        transform,
-      },
-      { duration: 0.8 },
-    ],
-  ];
-
+  const controls = useAnimation();
   useEffect(() => {
-    animate(sequence, {
-      repeat: Infinity,
-      repeatDelay: 1,
+    controls.start({
+      scale: [1, 1.5, 1],
+      rotate: [0, 360, 0],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatDelay: 1,
+      },
     });
-  }, []);
+  }, [controls]);
+
   return (
     <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
       <div className="flex flex-row flex-shrink-0 justify-center items-center gap-2">
@@ -70,10 +32,10 @@ const Skeleton = () => {
           <GithubLogo className="h-4 w-4 " />
         </Container>
         <Container className="h-12 w-12 circle-2">
-          <ReactLogo className="h-6 w-6 text-white" />
+          <ReactLogo className="h-6 w-6 " />
         </Container>
         <Container className="circle-3">
-          <NuxtLogo className="h-8 w-8 text-white" />
+          <NuxtLogo className="h-8 w-8 " />
         </Container>
         <Container className="h-12 w-12 circle-4">
           <VueLogo className="h-6 w-6 " />
@@ -120,7 +82,7 @@ const Sparkles = () => {
             borderRadius: "50%",
             zIndex: 1,
           }}
-          className="inline-block bg-black bg-white"
+          className="inline-block  bg-white"
         ></motion.span>
       ))}
     </div>
@@ -154,7 +116,7 @@ export const CardTitle = ({
   className?: string;
 }) => {
   return (
-    <h3 className={cn("text-lg font-semibold  text-white py-2", className)}>
+    <h3 className={cn("text-lg font-semibold   py-2", className)}>
       {children}
     </h3>
   );

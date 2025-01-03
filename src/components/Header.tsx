@@ -32,7 +32,7 @@ const Header = () => {
             </Link>
             <div className="flex gap-x-2">
               <button
-                className="p-2 border rounded-full"
+                className="p-2 border-zinc-600 border-[0.5px] rounded-full"
                 onClick={() => openNewTab("https://www.behance.net/volong5")}
               >
                 <svg
@@ -60,7 +60,7 @@ const Header = () => {
                 </svg>
               </button>
               <button
-                className="p-2 border rounded-full"
+                className="p-2 border-zinc-600 border-[0.5px] rounded-full"
                 onClick={() => openNewTab("https://github.com/slogvo")}
               >
                 <svg

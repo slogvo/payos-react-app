@@ -86,14 +86,6 @@ h6 {
     color: #bb86fc;
   }
 
-  button,
-  input,
-  textarea {
-    background-color: #333333;
-    color: #fff;
-    border: 1px solid #444;
-  }
-
   .wmde-markdown.wmde-markdown-color {
     background-color: #1f1f1f;
     color: #e0e0e0;
