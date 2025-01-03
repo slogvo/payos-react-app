@@ -5,7 +5,7 @@ const Header = () => {
     window.open(url, "_blank");
   };
   return (
-    <header className="bg-[#121212] shadow-sm sticky top-0 z-50 border-zinc-500 border-b-[0.5px]">
+    <header className="bg-[#121212] sticky top-0 z-50 border-zinc-800 border-b-[0.5px]">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="font-bold text-xl">
