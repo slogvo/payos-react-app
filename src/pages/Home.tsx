@@ -6,6 +6,7 @@ import MarkdownPreview from "@uiw/react-markdown-preview";
 import "video.js/dist/video-js.css";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { Img } from "react-image";
+import { BlockAnimatedCard } from "@/components/BlockAnimatedCard";
 
 const markdownContent = `
 # @slogvo/react-universal-video
@@ -135,57 +136,63 @@ If you'd like to contribute to @slogvo/react-universal-video, feel free to fork 
 const Home = () => {
   return (
     <div>
-      <BackgroundBeamsWithCollision>
-        <div className="flex flex-row justify-center items-center">
-          <h3 className="text-2xl max-w-md relative z-20 md:text-3xl lg:text-5xl font-bold text-center text-white font-sans tracking-tight">
-            Hi, I'm Long
-            <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
-              <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-sky-500 via-blue-400 to-sky-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
-                <span className="">A Web Developer</span>
+      <div className="relative">
+        <BackgroundBeamsWithCollision>
+          <div className="flex flex-col sm:flex-row justify-center items-center">
+            <h3 className="text-2xl max-w-md relative z-20 md:text-3xl lg:text-5xl font-bold text-center text-white font-sans tracking-tight">
+              Hi, I'm Long
+              <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
+                <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-sky-500 via-blue-400 to-sky-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
+                  <span className="">A Web Developer</span>
+                </div>
+                <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-sky-500 via-blue-400 to-sky-500   py-4">
+                  <span className="">A Web Developer</span>
+                </div>
               </div>
-              <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-sky-500 via-blue-400 to-sky-500   py-4">
-                <span className="">A Web Developer</span>
-              </div>
-            </div>
-          </h3>
-          <CardContainer className="inter-var ">
-            <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] text-white border-white/[0.2]  w-auto sm:w-[30rem] h-auto rounded-xl p-6 border ">
-              <CardItem
-                as="p"
-                translateZ="60"
-                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-              >
-                Hover over this card to unleash the power of CSS perspective
-              </CardItem>
-              <CardItem
-                translateZ="100"
-                rotateX={20}
-                rotateZ={-10}
-                className="w-full mt-4"
-              >
-                <Img
-                  src="https://i.imgur.com/nH5BDn6.jpeg"
-                  height="1000"
-                  width="1000"
-                  className="h-80 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                  alt="thumbnail"
-                />
-              </CardItem>
-              <div className="flex justify-end items-end mt-10">
+              <BlockAnimatedCard />
+            </h3>
+            <CardContainer className="inter-var">
+              <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] text-white border-white/[0.2]  w-auto sm:w-[30rem] h-auto rounded-xl p-6 border ">
                 <CardItem
-                  translateZ={20}
-                  translateX={40}
-                  as="a"
-                  href="mailto:volonglqd@gmail.com"
-                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                  as="p"
+                  translateZ="60"
+                  className="text-neutral-500 text-sm text-justify max-w-sm mt-2 dark:text-neutral-300"
                 >
-                  Contact me now →
+                  I work on a variety of projects ranging from frontend
+                  development to full-stack web applications. Whether it's
+                  building intuitive UIs or optimizing performance, my goal is
+                  always to deliver an exceptional product.
                 </CardItem>
-              </div>
-            </CardBody>
-          </CardContainer>
-        </div>
-      </BackgroundBeamsWithCollision>
+                <CardItem
+                  translateZ="100"
+                  rotateX={20}
+                  rotateZ={-10}
+                  className="w-full mt-4"
+                >
+                  <Img
+                    src="https://i.imgur.com/nH5BDn6.jpeg"
+                    height="1000"
+                    width="1000"
+                    className="h-80 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                    alt="thumbnail"
+                  />
+                </CardItem>
+                <div className="flex justify-end items-end mt-10">
+                  <CardItem
+                    translateZ={20}
+                    translateX={40}
+                    as="a"
+                    href="mailto:volonglqd@gmail.com"
+                    className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                  >
+                    Contact me now →
+                  </CardItem>
+                </div>
+              </CardBody>
+            </CardContainer>
+          </div>
+        </BackgroundBeamsWithCollision>
+      </div>
       <div className="min-h-screen flex flex-col lg:flex-row">
         {/* Left Side: Video Demo */}
         <div className="w-full lg:w-2/5 p-4">

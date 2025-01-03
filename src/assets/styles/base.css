@@ -163,3 +163,28 @@ body::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #26a5ee, #12a5ea);
   border-radius: 10px;
 }
+
+.text-effect {
+  font-size: 36px;
+  font-weight: bold;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #000; /* Thêm dấu chấm cuối để có hiệu ứng gõ */
+  animation: typing 5s steps(30) infinite, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
