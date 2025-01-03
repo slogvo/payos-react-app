@@ -2,16 +2,13 @@ import { BrowserRouter as Router, Routes } from "react-router-dom";
 
 import routes from "./routes";
 import Header from "./components/Header";
-import { CartProvider } from "./contexts/CartContext";
 
 const App = () => {
   return (
-    <CartProvider>
-      <Router>
-        <Header />
-        <Routes>{routes}</Routes>
-      </Router>
-    </CartProvider>
+    <Router>
+      <Header />
+      <Routes>{routes}</Routes>
+    </Router>
   );
 };
 

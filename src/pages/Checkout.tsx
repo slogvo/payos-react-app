@@ -1,175 +1,57 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useCart } from "../contexts/CartContext";
+"use client";
 
-interface CheckoutForm {
-  fullName: string;
-  email: string;
-  phone: string;
-  address: string;
-  city: string;
-  paymentMethod: "cod" | "bank-transfer";
-}
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { Img } from "react-image";
 
 const Checkout = () => {
-  const navigate = useNavigate();
-  const { state, dispatch } = useCart();
-  const [form, setForm] = useState<CheckoutForm>({
-    fullName: "",
-    email: "",
-    phone: "",
-    address: "",
-    city: "",
-    paymentMethod: "cod",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Here you would typically send the order to your backend
-    console.log("Order details:", {
-      items: state.items,
-      total: state.total,
-      customer: form,
-    });
-
-    // Clear cart and redirect to success page
-    dispatch({ type: "CLEAR_CART" });
-    navigate("/checkout/success");
-  };
-
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-3xl mx-auto px-4">
-        <h1 className="text-3xl font-bold mb-8">Checkout</h1>
-
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="bg-white p-6 rounded-lg shadow space-y-4">
-            <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium mb-1">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={form.fullName}
-                  onChange={(e) =>
-                    setForm({ ...form, fullName: e.target.value })
-                  }
-                  className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-black"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1">Email</label>
-                <input
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-black"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-1">Phone</label>
-                <input
-                  type="tel"
-                  required
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-black"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow space-y-4">
-            <h2 className="text-xl font-semibold mb-4">Shipping Address</h2>
-
-            <div>
-              <label className="block text-sm font-medium mb-1">Address</label>
-              <input
-                type="text"
-                required
-                value={form.address}
-                onChange={(e) => setForm({ ...form, address: e.target.value })}
-                className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-black"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-1">City</label>
-              <input
-                type="text"
-                required
-                value={form.city}
-                onChange={(e) => setForm({ ...form, city: e.target.value })}
-                className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-black"
-              />
-            </div>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow space-y-4">
-            <h2 className="text-xl font-semibold mb-4">Payment Method</h2>
-
-            <div className="space-y-2">
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="payment"
-                  value="cod"
-                  checked={form.paymentMethod === "cod"}
-                  onChange={() => setForm({ ...form, paymentMethod: "cod" })}
-                />
-                Cash on Delivery
-              </label>
-
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="payment"
-                  value="bank-transfer"
-                  checked={form.paymentMethod === "bank-transfer"}
-                  onChange={() =>
-                    setForm({ ...form, paymentMethod: "bank-transfer" })
-                  }
-                />
-                Bank Transfer
-              </label>
-            </div>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-
-            <div className="space-y-2 mb-4">
-              <div className="flex justify-between">
-                <span>Subtotal</span>
-                <span>{state.total.toLocaleString("vi-VN")}₫</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Shipping</span>
-                <span>Free</span>
-              </div>
-              <div className="border-t pt-2 font-bold flex justify-between">
-                <span>Total</span>
-                <span>{state.total.toLocaleString("vi-VN")}₫</span>
-              </div>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-black text-white py-3 rounded-full hover:bg-gray-800"
+    <div>
+      <CardContainer className="inter-var">
+        <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] text-white dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+          <CardItem translateZ="50" className="text-xl font-bold  text-white">
+            Make things float in air
+          </CardItem>
+          <CardItem
+            as="p"
+            translateZ="60"
+            className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
           >
-            Place Order
-          </button>
-        </form>
-      </div>
+            Hover over this card to unleash the power of CSS perspective
+          </CardItem>
+          <CardItem
+            translateZ="100"
+            rotateX={20}
+            rotateZ={-10}
+            className="w-full mt-4"
+          >
+            <Img
+              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              height="1000"
+              width="1000"
+              className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+              alt="thumbnail"
+            />
+          </CardItem>
+          <div className="flex justify-between items-center mt-20">
+            <CardItem
+              translateZ={20}
+              translateX={-40}
+              as="button"
+              className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            >
+              Try now →
+            </CardItem>
+            <CardItem
+              translateZ={20}
+              translateX={40}
+              as="button"
+              className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            >
+              Sign up
+            </CardItem>
+          </div>
+        </CardBody>
+      </CardContainer>
     </div>
   );
 };

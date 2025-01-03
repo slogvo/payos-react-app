@@ -8,9 +8,14 @@
   margin: 0;
 }
 
+#root {
+  background-color: #262626;
+}
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: #262626;
+  color: #fff;
 }
 
 img,
@@ -70,6 +75,49 @@ h6 {
     stroke-dasharray: unset !important;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  a {
+    color: #bb86fc;
+  }
+
+  button,
+  input,
+  textarea {
+    background-color: #333333;
+    color: #fff;
+    border: 1px solid #444;
+  }
+
+  .wmde-markdown.wmde-markdown-color {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    padding: 32px 40px;
+    border-radius: 8px;
+  }
+
+  /* Các yếu tố cần tối ưu thêm cho dark mode */
+  .card {
+    background-color: #333333; /* Nền tối cho thẻ */
+    color: #e0e0e0; /* Chữ sáng */
+    border: 1px solid #444; /* Viền tối */
+  }
+
+  /* Sử dụng màu sắc tối cho các thành phần UI khác */
+  header,
+  footer {
+    background-color: #181818;
+    color: #e0e0e0;
+  }
+
+  /* Thêm các quy tắc khác nếu cần */
+}
+
 @keyframes grow {
   0% {
     stroke-dashoffset: 1px;
@@ -82,7 +130,6 @@ h6 {
   40% {
     stroke-dasharray: 350px 0;
   }
-  /* Moving back */
   85% {
     stroke-dasharray: 350px 0;
   }
@@ -91,6 +138,7 @@ h6 {
     stroke-dasharray: 0 350px;
   }
 }
+
 path {
   stroke-dasharray: 350px 0;
   animation: grow 8s ease forwards infinite;

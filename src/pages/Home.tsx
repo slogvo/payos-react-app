@@ -1,6 +1,11 @@
+"use client";
+
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { VideoPlayer } from "@slogvo/react-universal-video";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import "video.js/dist/video-js.css";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { Img } from "react-image";
 
 const markdownContent = `
 # @slogvo/react-universal-video
@@ -129,36 +134,94 @@ If you'd like to contribute to @slogvo/react-universal-video, feel free to fork 
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-gray-50">
-      {/* Left Side: Video Demo */}
-      <div className="w-full lg:w-2/5 p-4">
-        <h2 className="text-xl font-semibold mb-4">Video Demos</h2>
-
-        <div className="flex flex-col gap-8">
-          <VideoPlayer
-            url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
-            width="100%"
-            height="450"
-          />
-          {/* HTML5 */}
-          <VideoPlayer
-            url="https://videos.pexels.com/video-files/5013307/5013307-hd_1920_1080_30fps.mp4"
-            width="100%"
-            height="450"
-          />
-          {/* YouTube */}
-          <VideoPlayer
-            url="https://www.youtube.com/watch?v=oA91tf1Udr0"
-            width="100%"
-            height="450"
-          />
+    <div>
+      <BackgroundBeamsWithCollision>
+        <div className="flex flex-row justify-center items-center">
+          <h3 className="text-2xl max-w-md relative z-20 md:text-3xl lg:text-5xl font-bold text-center text-white font-sans tracking-tight">
+            Hi, I'm Long
+            <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
+              <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-sky-500 via-blue-400 to-sky-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
+                <span className="">A Web Developer</span>
+              </div>
+              <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-sky-500 via-blue-400 to-sky-500   py-4">
+                <span className="">A Web Developer</span>
+              </div>
+            </div>
+          </h3>
+          <CardContainer className="inter-var ">
+            <CardBody className="relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] text-white border-white/[0.2]  w-auto sm:w-[30rem] h-auto rounded-xl p-6 border ">
+              <CardItem
+                as="p"
+                translateZ="60"
+                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+              >
+                Hover over this card to unleash the power of CSS perspective
+              </CardItem>
+              <CardItem
+                translateZ="100"
+                rotateX={20}
+                rotateZ={-10}
+                className="w-full mt-4"
+              >
+                <Img
+                  src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  height="1000"
+                  width="1000"
+                  className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                  alt="thumbnail"
+                />
+              </CardItem>
+              <div className="flex justify-between items-center mt-20">
+                <CardItem
+                  translateZ={20}
+                  translateX={-40}
+                  as="button"
+                  className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+                >
+                  Try now →
+                </CardItem>
+                <CardItem
+                  translateZ={20}
+                  translateX={40}
+                  as="button"
+                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                >
+                  Sign up
+                </CardItem>
+              </div>
+            </CardBody>
+          </CardContainer>
         </div>
-      </div>
-
-      {/* Right Side: README Preview */}
-      <div className="w-full lg:w-3/5 p-4 overflow-auto">
-        <div className="p-4">
-          <MarkdownPreview source={markdownContent} />
+      </BackgroundBeamsWithCollision>
+      <div className="min-h-screen flex flex-col lg:flex-row">
+        {/* Left Side: Video Demo */}
+        <div className="w-full lg:w-2/5 p-4">
+          <h2 className="text-xl font-semibold mb-4 text-white">Video Demos</h2>
+          <div className="flex flex-col gap-8">
+            <VideoPlayer
+              url="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+              width="100%"
+              height="450"
+            />
+            {/* HTML5 */}
+            <VideoPlayer
+              url="https://videos.pexels.com/video-files/5013307/5013307-hd_1920_1080_30fps.mp4"
+              width="100%"
+              height="450"
+            />
+            {/* YouTube */}
+            <VideoPlayer
+              url="https://www.youtube.com/watch?v=IzSYlr3VI1A"
+              width="100%"
+              height="450"
+            />
+          </div>
+        </div>
+        {/* Right Side: README Preview */}
+        <div className="w-full lg:w-3/5 p-4 overflow-auto">
+          <div className="p-4">
+            <MarkdownPreview source={markdownContent} />
+          </div>
         </div>
       </div>
     </div>
