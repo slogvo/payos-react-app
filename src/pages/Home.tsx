@@ -130,7 +130,7 @@ console.log(youtubeId); // Output: 9cklv0qQ8Jw
 
 ## Contributing
 
-If you'd like to contribute to @slogvo/react-universal-video, feel free to fork the repository and submit a pull request. We appreciate your contributions!
+If you'd like to contribute to @slogvo/react-universal-video, feel free to fork the repository and submit a pull request. I appreciate your contributions!
 `;
 
 const Home = () => {
