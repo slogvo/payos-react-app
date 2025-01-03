@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const openNewTab = (url) => {
+  const openNewTab = (url: string | URL | undefined) => {
     window.open(url, "_blank");
   };
   return (
