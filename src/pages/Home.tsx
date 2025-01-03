@@ -175,7 +175,8 @@ const Home = () => {
                 <CardItem
                   translateZ={20}
                   translateX={40}
-                  as="button"
+                  as="a"
+                  href="mailto:volonglqd@gmail.com"
                   className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
                 >
                   Contact me now →
