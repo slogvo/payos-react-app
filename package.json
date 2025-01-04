@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
-    "@slogvo/react-universal-video": "^1.0.11",
+    "@slogvo/react-universal-video": "1.1.2",
     "@tabler/icons-react": "^3.26.0",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@uiw/react-markdown-preview": "^5.1.3",
